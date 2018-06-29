@@ -1,1 +1,1 @@
-web: gunicorn piratebay.wsgi
+web: python manage.py runserver
