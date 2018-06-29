@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block body_content %}
+<div class="container">
+  {% load static %}
+  <center>
+    <img src="{% static 'torrents/utorrent_logo.jpg' %}" alt="utorrent logo">
+    <form action="/search/" method="GET">
+      <div class="form-group col-10 m-1">
+        <input type="text" name="q" class="form-control" placeholder="Search" autofocus required>
+      </div>
+      <input type="submit" value="Search Torrent" class="btn btn-secondary m-1">
+    </form>
+    <p class="text-center mt-4"><a href="https://www.utorrent.com" target="_blank"><strong>Download µTorrent</strong></a></p>
+  </center>
+</div>
+{% endblock body_content %}

@@ -1,0 +1,29 @@
+.fa-button {
+  background: none;
+  padding: 0px;
+  border: none;
+  cursor: pointer;
+}
+
+html, body {
+  font-family: 'Montserrat', sans-serif;
+  height: 100%;
+}
+
+.results-table {
+  font-size: 80%;
+  border-radius: 14px;
+}
+
+.navbar-form {
+  height: 30px;
+  font-size: 12px;
+}
+
+.download {
+  color: DeepSkyBlue;
+}
+
+#download {
+  text-align: center;
+}

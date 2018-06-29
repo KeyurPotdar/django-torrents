@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block body_content %}
+<div class="container">
+  <form action="/search/" method="GET">
+    <div class="row">
+      <div class="form-group col-md-10 mt-3 m-1">
+        <input type="text" name="q" class="form-control" placeholder="Search" autofocus required>
+      </div>
+      <input type="submit" value="Search Torrent" class="btn btn-secondary mt-3 m-1">
+    </div>
+  </form>
+</div>
+
+<div class="container">
+  <h5 class="my-3">Search results for: <strong>{{ search_key }}</strong></h5>
+  {% if torrents %}
+    <table class="table table-bordered results-table mb-5">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Seeders</th>
+          <th scope="col">Leechers</th>
+          <th scope="col">Size</th>
+          <th scope="col">Uploaded</th>
+          <th scope="col">Uploader</th>
+          <th scope="col">Magnet</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for torrent in torrents %}
+          <tr>
+            <th scope="row"><a href="{{ torrent.link }}" target="_blank">{{ torrent.name }}</a></td>
+            <td>{{ torrent.seeders }}</td>
+            <td>{{ torrent.leechers }}</td>
+            <td>{{ torrent.size }}</td>
+            <td>{{ torrent.uploaded }}</td>
+            <td>{{ torrent.uploader }}</td>
+            <td id="download">
+              <form action="/download/" method="GET">
+                <input type="hidden" name="link" value="{{ torrent.link }}">
+                <button type="submit" class="fa-button">
+                  <i class="fa fa-download download"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No torrents found.</p>
+  {% endif %}
+
+</div>
+{% endblock body_content %}
