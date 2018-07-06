@@ -12,10 +12,14 @@ class HomePage(generic.TemplateView):
 def search(request):
     search_key = request.GET['q']
     url = format_url(search_key)
-    return render(request,
-                  'torrents/torrents_list.html',
-                  context={'torrents': get_torrents(url),
-                           'search_key': search_key})
+    return render(
+        request,
+        'torrents/torrents_list.html',
+        context={
+            'torrents': get_torrents(url),
+            'search_key': search_key
+        }
+    )
 
 
 def download(request):
