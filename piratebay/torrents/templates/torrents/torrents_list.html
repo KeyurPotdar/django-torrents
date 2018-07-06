@@ -30,7 +30,7 @@
       <tbody>
         {% for torrent in torrents %}
           <tr>
-            <th scope="row"><a href="{{ torrent.link }}" target="_blank">{{ torrent.name }}</a></td>
+            <th scope="row"><a href="{{ torrent.link }}" target="_blank">{{ torrent.name }}</a></th>
             <td>{{ torrent.seeders }}</td>
             <td>{{ torrent.leechers }}</td>
             <td>{{ torrent.size }}</td>
